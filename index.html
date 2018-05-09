@@ -6,24 +6,30 @@
 <title>
     Trivia Game
 </title>
+
+
 </head>
 
 <body>
 
 <div class="container">
 
-<div id="TrivaSec">
+    <div id="Question"></div>
 
+    <input type='radio' id="a" name=['answers'] value='0'>this <br>
+    <input type='radio' id="b" name=['answers'] value='1'>is<br>
+    <input type='radio' id="c" name=['answers'] value='2'>me<br>
+    <input type='radio' id="d" name=['answers'] value='3'>now<br>
     
-    
+<button id='btnNext' onclick="Next()"> Next</button>
+<button id= 'submit' onclick="correctThis()">Sumbit</button>
 
 
 </div>
 
 </div>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="./assets/javascript/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
 
