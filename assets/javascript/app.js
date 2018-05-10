@@ -5,38 +5,84 @@
 var time = 15;
 var correctAns = 0;
 var IncorrectAns=0;
-var current=0;
+var current=0; // holds the current question
 
 
 
 
 
 $(document).ready(function(){
-var questions =[{
-    q: "Which House Does not Belong?",
-    ans:["Gryfindor", "Slytherin", "Hufflepuff","Eagleclaw"],
-corrrect: 4,
-},{
-    q: "Who is the headmaster at Hogwarts?" ,    
-    ans2: ["Dusseldorf", "Gandalf", "Dumbledore","Hodor"],
-    correct: 3,
-},{
-q: "Who is the main villain in the Series?",
-ans:["Draco Malfoy", "Snape", "Voldemort","Stalin"],
+
+
+
+
+
+
+
+
+var questions =[
+    
+    {
+    question: "Which House Does not Belong?",
+    answer:{
+        
+        a:"Gryfindor",
+        b: "Slytherin", 
+        c:"Hufflepuff",
+        d:"Eagleclaw",
+    },
+correct: "d",
+},
+{
+    question: "Who is the headmaster at Hogwarts?" ,    
+    answer: { 
+        a:"Dusseldorf",
+        b: "Gandalf", 
+        c:"Dumbledore",
+        d:"Hodor",
+    
+},
+correct: "c",
+},
+{
+question: "Who is the main villain in the Series?",
+answer:{
+    a:"Draco Malfoy",
+    b: "Snape",
+    c: "Voldemort",
+    d:"Stalin",
 correct: 3,
-},{
-    q:"What was Harry Potter's owl named?",
-   ans: ["Hedwig", "Melvin", "Fluffy", "Owl"],
-correct: 1,
-}];
+},
+correct: "c",
+},
+{
+question:"What was Harry Potter's owl named?",
+answer: {
+    a:"Hedwig",
+    b: "Melvin",
+    c: "Fluffy",
+    d: "Owl"
+},
 
-console.log(questions[0]);
+correct: "a",
+},
+];
 
 
-function renderQuestion(){
-var quiz= questions[current].q;
-
-};
 
 
-})
+function render(QuestionSelector){
+$("#Trivia").text(questions[QuestionSelector].question);
+
+for (letter in questions[QuestionSelector].answer){
+    $("#a").text(questions[QuestionSelector].answer[letter]);
+
+}
+
+}
+
+
+
+
+render(current);
+});
