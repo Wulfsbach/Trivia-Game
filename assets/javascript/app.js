@@ -15,7 +15,10 @@ $(document).ready(function(){
 
 
 
-
+function reset(){
+    current=0;
+    render(current);
+}
 
 
 
@@ -73,11 +76,11 @@ correct: "a",
 
 function render(QuestionSelector){
 $("#Trivia").text(questions[QuestionSelector].question);
-$("#answers").html("<label><input type='radio' name='questions' id='A'><span>" + questions[QuestionSelector].answer.a + "</span></label> <br>");
-$("#answers").append("<label><input type='radio' name='questions' id='B'><span>" + questions[QuestionSelector].answer.b + "</span></label> <br>");
-$("#answers").append("<label><input type='radio' name='questions id='C'><span>" + questions[QuestionSelector].answer.c + "</span></label><br>");
-$("#answers").append("<label><input type='radio' name='questions'id='D'><span>" + questions[QuestionSelector].answer.d + "</span></label><br>");
-console.log(questions[QuestionSelector].answer.a);
+$("#answers").html("<label><input type='radio' name='questions'><span>" + questions[QuestionSelector].answer.a + "</span></label> <br>");
+$("#answers").append("<label><input type='radio' name='questions'><span>" + questions[QuestionSelector].answer.b + "</span></label> <br>");
+$("#answers").append("<label><input type='radio' name='questions'><span>" + questions[QuestionSelector].answer.c + "</span></label><br>");
+$("#answers").append("<label><input type='radio' name='questions'><span>" + questions[QuestionSelector].answer.d + "</span></label><br>");
+// console.log(questions[QuestionSelector].answer.a);
 
 }
 
@@ -85,18 +88,45 @@ console.log(questions[QuestionSelector].answer.a);
 function next(){
     $('#submit').on('click',function (){
         console.log(current);
-        current++;
-        console.log(current);
         render(current);
-
+        current++;
+       
+        
+        
 
         // if( current === 3) {
         //     alert("GAME IS OVER!");
         }
     )};
 
+
+
+
+    function checkAnswer(){
+       $('#submit').on('click', function() {
+           console.log($(this))
+           if($(this) === '#A'){
+               var UserChoice= 'a';
+
+           }else if($(this)==='#B'){
+               UserChoice='b';
+           }else if($(this)==='#C'){
+               UserChoice='c';
+           }else if($(this)==='#D'){
+               UserChoice = 'd';
+           }
+           if ((UserChoice === 'a') && (UserChoice=== (questions[current].correct))) {
+               CorrectAnswer();
+           };
+        
+        
+       }) 
+    }
 console.log(current);
 
 next();
 
+function CorrectAnswer(){
+console.log("hello");
+}
 });
