@@ -90,7 +90,7 @@ function next(){
         console.log(current);
         render(current);
         current++;
-       
+       checkAnswer();
         
         
 
@@ -104,11 +104,11 @@ function next(){
 
     function checkAnswer(){
        $('#submit').on('click', function() {
-           console.log($(this))
+        //    console.log($(this));
            if($(this) === '#A'){
                var UserChoice= 'a';
 
-           }else if($(this)==='#B'){
+           }else if($(this) ==='#B'){
                UserChoice='b';
            }else if($(this)==='#C'){
                UserChoice='c';
