@@ -73,16 +73,30 @@ correct: "a",
 
 function render(QuestionSelector){
 $("#Trivia").text(questions[QuestionSelector].question);
-
-for (letter in questions[QuestionSelector].answer){
-    $("#a").text(questions[QuestionSelector].answer[letter]);
+$("#answers").html("<label><input type='radio' name='questions' id='A'><span>" + questions[QuestionSelector].answer.a + "</span></label> <br>");
+$("#answers").append("<label><input type='radio' name='questions' id='B'><span>" + questions[QuestionSelector].answer.b + "</span></label> <br>");
+$("#answers").append("<label><input type='radio' name='questions id='C'><span>" + questions[QuestionSelector].answer.c + "</span></label><br>");
+$("#answers").append("<label><input type='radio' name='questions'id='D'><span>" + questions[QuestionSelector].answer.d + "</span></label><br>");
+console.log(questions[QuestionSelector].answer.a);
 
 }
 
-}
+
+function next(){
+    $('#submit').on('click',function (){
+        console.log(current);
+        current++;
+        console.log(current);
+        render(current);
 
 
+        // if( current === 3) {
+        //     alert("GAME IS OVER!");
+        }
+    )};
 
+console.log(current);
 
-render(current);
+next();
+
 });
